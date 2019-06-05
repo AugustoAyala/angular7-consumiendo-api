@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-info mb-3"> 
+  <a class="navbar-brand" href="/">Inicio</a>
+</nav> 
+<div class="container">
+   <h1>Mantenimiento Persona</h1>
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+         <div class="form-group">
+           <label for="controlNombre">Nombre</label>
+           <input type="text" [(ngModel)] = "agregarPersonaRegistro.nombre" class="form-control" placeholder="Nombre de persona..">
+          </div>
+          <div class="form-group">
+           <label for="controlApellido">Apellido</label>
+           <input type="text" [(ngModel)] = "agregarPersonaRegistro.apellido"      class="form-control" placeholder="Apellido de persona..">
+          </div>
+          <div class="form-group">
+           <label for="controlEdad">Edad</label>
+           <input type="text" [(ngModel)] = "agregarPersonaRegistro.edad" class="form-control"     placeholder="Edad de persona..">
+          </div>
+          <button (click)="agregarPersona()" class="btn btn-info">Agregar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <table class="table table-striped">
+       <thead>
+         <th>Nombre</th>
+         <th>Apellido</th>
+         <th>Edad</th>
+         <th>*</th>
+       </thead>
+       <tbody>
+        <tr *ngFor="let item of personas">
+         <td>{{item.nombre}}</td>
+         <td>{{item.apellido}}</td>
+         <td>{{item.edad}}</td>
+         <button (click)="eliminarPersona(item._id)" class="btn btn-danger"> Eliminabutton>
+         </tr>
+        
+       </tbody>
+     </table>
+    </div>
+  </div>
+</div>
