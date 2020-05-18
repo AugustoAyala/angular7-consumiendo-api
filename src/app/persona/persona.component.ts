@@ -7,7 +7,7 @@ import{PersonaService} from '../servicio/persona.service';
   styleUrls: ['./persona.component.css']
 })
 export class PersonaComponent implements OnInit {
-
+  
   agregarPersonaRegistro: any= {nombre: "", apellido: "", edad:""}
   personas: any;
 
@@ -18,8 +18,6 @@ export class PersonaComponent implements OnInit {
 obtenerPersona(){
   this.personaService.obtenerTodasLasPersona().subscribe(resultado =>{
     this.personas = resultado;
-    
-   
   },
   error => {
     console.log(JSON.stringify(error));
@@ -39,7 +37,6 @@ eliminarPersona(indentificador){
 agregarPersona(){
   this.personaService.agregarPersona(this.agregarPersonaRegistro).subscribe(resultado =>{
     this.obtenerPersona();
-  
   },
   error => {
     console.log(JSON.stringify(error));
