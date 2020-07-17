@@ -13,33 +13,35 @@ export class PersonaComponent implements OnInit {
 
   constructor(private personaService: PersonaService) {
     this.obtenerPersona();
-   }
+  }
 
-obtenerPersona(){
-  this.personaService.obtenerTodasLasPersona().subscribe(resultado =>{
+  obtenerPersona(){
+    this.personaService.obtenerTodasLasPersona().subscribe(resultado =>{
     this.personas = resultado;
-  },
-  error => {
-    console.log(JSON.stringify(error));
-  });
-}
-ngOnInit() {
-}
+    },
+    error => {
+      console.log(JSON.stringify(error));
+    });
+  }
 
-eliminarPersona(indentificador){
-  this.personaService.eliminarPersona(indentificador).subscribe(resultado =>{
+  ngOnInit() {
+  }
+
+  eliminarPersona(indentificador){
+    this.personaService.eliminarPersona(indentificador).subscribe(resultado =>{
     this.obtenerPersona();
-  },
-  error => {
-    console.log(JSON.stringify(error));
-  });
-}
-agregarPersona(){
-  this.personaService.agregarPersona(this.agregarPersonaRegistro).subscribe(resultado =>{
+    },
+    error => {
+      console.log(JSON.stringify(error));
+    });
+  }
+
+  agregarPersona(){
+    this.personaService.agregarPersona(this.agregarPersonaRegistro).subscribe(resultado =>{
     this.obtenerPersona();
-  },
-  error => {
-    console.log(JSON.stringify(error));
-  });
-}
+    },
+    error => {
+      console.log(JSON.stringify(error));
+    });
+  }
 }
